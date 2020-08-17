@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Let the Mute Witnesses Speak</title>
+  <title>NGOs/ NPOs 訊息站</title>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -17,16 +17,12 @@
     <div class="row">
     		<div class="col-md-12">
     			<div class="jumbotron">
-    				<h2>Let the Mute Witnesses Speak</h2><br>
+    				<h2>實驗試作版 II</h2><br>
     				<p>
-    					The list of all temples, stupas and monuments that were destroyed is mentioned herein.
-              Some of them may be replaced by masjids, some may remain in various stages of ruin while some may
-              even be reclaimed by the Dharmic community. In case the authenticity of a particular claim in the list
-              below is considered questionable, it is marked as such. The references for each of these monuments will
-              be provided soon.
+    					本站利用 google sheet/google form 為資料庫後台，半自動進行非營利非政府組織的活動訊息更新。其技術操作可參考原文<a href="https://www.thecodepost.org/using-google-sheets-as-website-database/">Using Google Sheets as Website Database</a>
             </p>
             <p>
-              The name of the page (and this web page in entirety) is inspired by the original works of Sita Ram Goel, especially the chapter 'Let the Mute Witnesses Speak' from the book <a href="https://lib.ugent.be/en/catalog/rug01:000781107">'Hindu Temples: What Happened to Them'</a>.
+              另有利用 awesome-table + google sheet 之<a href="https://www.twngo.org">實驗</a>。
             </p>
     			</div><!--jumbotron ends-->
     		</div><!--col-md-12 ends-->
@@ -43,22 +39,22 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="js/scripts.js"></script>
   <script type='text/javascript'>
-    var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1clakCW5TxaIAEhr7qujT5x3j3Sf7uGRiL-a4zjou4-I/edit?usp=sharing';
+    var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1cZcjjyHE58KYgcgqkhWRyrwAxsTz6HjbiQtY2S-1-GM/edit?usp=sharing';
 
     function init() {
       Tabletop.init( { key: publicSpreadsheetUrl,
                        callback: showInfo,
                        simpleSheet: true } )
     }
-    var counter = 1;
+    // var counter = 1;
     function showInfo(data, tabletop) {
 
             for(var i=0;i<data.length; i++){
               $('.postlist').append('<div class="col-md-4"><h4 style="text-align:center;">'
-                +data[i].name+'</h4><img class="img-thumbnail rounded mx-auto d-block" style="height:200px;" alt="'+data[i].name+'" src="'+data[i].imagesrc+'"</img><p style="text-align: justify; text-justify: inter-word;">' + data[i].summary + '</p><p><b>Status:</b> '+ data[i].status + '</p><p><b>Built Date: </b> '+ data[i].builtdate + '</p><p><b>Destroyed Date: </b> '+ data[i].destroyeddate + '</p><p><b>Destroyed by: </b> '+ data[i].destroyedby + '</p><p><a class="btn btn-outline-info" target="_blank" href="'+data[i].details_link+'">View details</a></p></div>');
-                if (counter == 3){
+                +data[i].name+'</h4><img class="img-thumbnail rounded mx-auto d-block" style="height:200px;" alt="'+data[i].name+'" src="'+data[i].imagesrc+'"</img><p style="text-align: justify; text-justify: inter-word;">' + data[i].summary + '</p><p><b>性質分類:</b> '+ data[i].status + '</p><p><b>議題類別: </b> '+ data[i].builtdate + '</p><p><b>截止日期: </b> '+ data[i].destroyeddate + '</p><p><b>Destroyed by: </b> '+ data[i].destroyedby + '</p><p><a class="btn btn-outline-info" target="_blank" href="'+data[i].details_link+'">詳情連結</a></p></div>');
+                //if (counter == 3){
 
-                }
+                //}
             }
 
       //alert('Successfully processed!')
